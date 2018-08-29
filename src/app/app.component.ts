@@ -8,12 +8,30 @@ import {GithubService} from './github.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  list: any;
+  errorMessage = null;
+  display = false;
 
   constructor(private githubService: GithubService) {
   }
 
   ngOnInit() {
-    this.githubService.getRepos().subscribe((res) => console.log(res));
+    this.getRepos();
+  }
+
+  getRepos() {
+    this.githubService.getRepos().subscribe((res) => this.list = res);
+  }
+
+  showRepos() {
+    if (!this.list && !this.list.length) {
+      this.display = false;
+      this.errorMessage = 'Some thing went wrong please try again later!!!!!';
+      this.getRepos();
+    } else {
+      console.log(this.list);
+      this.display = true;
+    }
   }
 
 }
