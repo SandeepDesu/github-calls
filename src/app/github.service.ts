@@ -12,7 +12,7 @@ export class GithubService {
   }
 
   getRepos(): Observable<any> {
-    const headers = new Headers({'Authorization': 'token ' + 'ae2e61635be5965d1a4021dde26ef4020dbba9d8' });
+    const headers = new Headers({'Authorization': 'token ' + 'please add your token' });
     const opts = new RequestOptions({ headers: headers });
     return this.http.get('https://api.github.com/user/repos?page=1&per_page=100', opts)
       .map(res => res.json());
