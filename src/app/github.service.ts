@@ -10,11 +10,14 @@ export class GithubService {
 
   constructor(private http: Http) {
   }
+  
+  getDetails(): Observable<any> {
+    return this.http.get('assets/githubdata.json')
+      .map(res => res.json());
+  }
 
-  getRepos(): Observable<any> {
-    const headers = new Headers({'Authorization': 'token ' + 'enter your token'});
-    const opts = new RequestOptions({headers: headers});
-    return this.http.get('https://api.github.com/user/repos?page=1', opts)
+  getlakDetails(): Observable<any> {
+    return this.http.get('assets/lak-github.json')
       .map(res => res.json());
   }
 }

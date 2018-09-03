@@ -1,6 +1,33 @@
-<input type="button" value="Display Repos" (click)="showRepos()"/>
-
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">CHARTS</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">No of commits</div>
+                <div class="panel-body">
+                    <app-linechart *ngIf="displayChart" [Source]="lineData"></app-linechart>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">No of open issues</div>
+                <div class="panel-body">
+                    <app-barchart *ngIf="displayChart" [Source]="barData"></app-barchart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <input type="button" value="Display Repos" (click)="showRepos()"/>
+<app-linechart *ngIf="displayChart" [Source]="lineData"></app-linechart>
+<app-barchart *ngIf="displayChart" [Source]="barData"></app-barchart>
 <ul *ngIf="display">
  <li *ngFor="let item of list">{{item.name}}</li>
-</ul>
-
+</ul> -->
