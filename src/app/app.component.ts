@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   showRepos(repos) {
     repos.forEach((value) => {
       this.barSource.push({
-        y:value.repository.id,
+        y:value.repository.open_issues,
         x:value.repository.id
       })
       this.lineSource.push({
