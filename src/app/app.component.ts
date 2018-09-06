@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     repos.forEach((value) => {
       this.barSource.push({
         y:value.repository.open_issues,
-        x:value.repository.id
+        x:value.repository.name.replace(/-/gi, " ").replace(/_/gi, " ").replace('datainsights',"").trim()
       })
       this.lineSource.push({
         x: value.id,
